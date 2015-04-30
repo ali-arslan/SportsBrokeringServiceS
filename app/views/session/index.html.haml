@@ -1,0 +1,15 @@
+- if flash[:status]
+  #notice.message= flash[:status]
+
+%p Sign in
+
+= form_tag session_login_path do
+  = text_field_tag(:username_field)
+  %br
+  = password_field_tag(:password_field)
+  = submit_tag("Log in")
+
+%p New here?
+= link_to 'Sign up', new_user_path
+%p Or
+= link_to 'sign in with Facebook', new_user_path

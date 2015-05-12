@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @user = User.find_by_id session[:currUserID]
+    @user = User.find_all_by_id session[:currUserID]
     puts 12345
     puts session[:currUserID]
     # puts @user.Name

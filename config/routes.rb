@@ -5,9 +5,10 @@ Rails.application.routes.draw do
 
   get 'session/logout'
   #
-  #root :to => 'session#index'
-  root :to => 'team#index'
-
+ # root :to => 'session#index'
+  root :to => 'teams#index'
+	get 'teams/index'
+	post 'teams/index' 
   resources :users
 
   resources :session

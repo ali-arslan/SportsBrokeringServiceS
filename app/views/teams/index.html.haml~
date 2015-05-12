@@ -4,10 +4,9 @@
 %input{:type=>"hidden", :value=>params[:types1], :name=>:types1}
 = form_tag teams_index_path :method => :post do
   Include: 
-  = text_field_tag(:q)
   - @all_types.each do |type|
     = type
-    = check_box_tag "type[#{type}]",1, true 
+    = check_box_tag "type[#{type}]",1,  @selected_types.include?(type) 
   = submit_tag 'Filter'
 
 %table#teams

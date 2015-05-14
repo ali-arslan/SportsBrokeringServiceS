@@ -5,13 +5,16 @@ Rails.application.routes.draw do
 
   get 'session/logout'
   #
- # root :to => 'session#index'
-  root :to => 'teams#index'
-	get 'teams/index'
-	post 'teams/index' 
+  #root :to => 'session#index'
+  #root :to => 'teams#index'
+  root :to => 'matchs#index'
+  get 'teams/index'
+  post 'teams/index' 
   resources :users
 
   resources :session
+ 
+  resources :matchs
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

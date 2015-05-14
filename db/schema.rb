@@ -14,12 +14,12 @@
 ActiveRecord::Schema.define(version: 20150511081328) do
 
   create_table "matches", force: :cascade do |t|
-    t.integer  "team_id"
+    t.integer  "team_1_id"
+    t.integer  "team_2_id"
+    t.integer  "match_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "matches", ["team_id"], name: "index_matches_on_team_id"
 
   create_table "teams", force: :cascade do |t|
     t.string   "name"

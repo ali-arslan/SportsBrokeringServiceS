@@ -1,6 +1,8 @@
 
 %h1 All Teams
 
+= link_to 'View All Matches', matchs_path
+
 %input{:type=>"hidden", :value=>params[:types1], :name=>:types1}
 = form_tag teams_index_path :method => :post do
   Filter Teams:
@@ -19,3 +21,5 @@
       %tr
         %td= t.name
         %td= t.team_type
+
+

@@ -1,0 +1,21 @@
+
+%h1 All Matches
+
+= link_to 'View All Teams', teams_index_path
+
+%table#matches
+	%thead
+		%tr
+		%th Home Team
+		%th Away Team
+		%th Type
+		%th Bet
+	%tbody
+	- @matches.each do |t|
+		%tr
+			%td= t.team_1.name
+			%td= t.team_2.name
+			%td= t.match_type
+		
+
+

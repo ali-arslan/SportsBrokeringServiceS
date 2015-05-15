@@ -1,7 +1,7 @@
 
 %h1 All Matches
 
-- if @user
+- if session[:currUserID]
 	Welcome, #{@user.Name}
 - else
 	= link_to 'Sign In', session_index_path

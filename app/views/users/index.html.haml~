@@ -4,4 +4,5 @@
 %h1 Welcome, #{@user.Name}
 
 = link_to 'View All Teams', teams_index_path
+
 = link_to 'View All Matches', matchs_path

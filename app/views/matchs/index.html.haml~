@@ -1,6 +1,13 @@
 
 %h1 All Matches
 
+- if @user
+	= link_to 'Sign In', session_index_path
+- else
+	Welcome, #{@user.Name}
+
+<br><br>
+
 = link_to 'View All Teams', teams_index_path
 
 %table#matches
@@ -16,6 +23,5 @@
 			%td= t.team_1.name
 			%td= t.team_2.name
 			%td= t.match_type
-		
 
 

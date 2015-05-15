@@ -1,6 +1,13 @@
 
 %h1 All Matches
 
+- if @user
+	Welcome, #{@user.Name}
+- else
+	= link_to 'Sign In', session_index_path
+
+<br><br>
+
 = link_to 'View All Teams', teams_index_path
 
 %table#matches

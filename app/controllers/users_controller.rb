@@ -3,11 +3,14 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @user = User.find(session[:currUserID])
-    puts 12345
-    puts session[:currUserID]
-    # puts @user.Name
-
+	 userID = session[:currUserID] || 0
+	 if userID != 0
+    	@user = User.find(session[:currUserID])
+    	puts 12345
+	 else
+		@user = nil
+	 end
+	
   end
 
   # GET /users/1

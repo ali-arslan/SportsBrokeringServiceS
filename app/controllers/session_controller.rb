@@ -20,5 +20,7 @@ class SessionController < ApplicationController
   end
 
   def logout
+		@user = nil
+		session[:currUserID] = nil
   end
 end

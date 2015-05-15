@@ -11,7 +11,8 @@ class SessionController < ApplicationController
       redirect_to root_path
     else
       puts "noka"
-      session[:currUserID] = @user.id
+      session[:currUserID] = @user.id	
+		session[:currUser] = @user
       puts @user.id
       flash[:status] = "You have successfully logged in!"
       redirect_to users_url
@@ -19,5 +20,7 @@ class SessionController < ApplicationController
   end
 
   def logout
+		@user = nil
+		session[:currUserID] = 0
   end
 end

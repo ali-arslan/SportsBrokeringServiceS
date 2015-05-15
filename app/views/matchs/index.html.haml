@@ -24,4 +24,6 @@
 			%td= t.team_2.name
 			%td= t.match_type
 
+- if session[:currUserID]
+	= link_to 'Logout', session_logout_path
 

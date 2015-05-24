@@ -25,6 +25,35 @@ class BetsController < ApplicationController
 	end
 
 	def new1
-
+		#puts params.inspect
+		#b=Bet.create()
+		#b.update_attributes(:matchID_id=>@match,)
+		value = params[:amount]
+		matchID = params[:matchID]
+		team = params[:team]
+		@user = User.find(session[:currUserID])
+		#puts value, matchID, team
+		@match = Match.find(matchID)
+		if @match.blank?
+			flash[:status] = "Wrong matchID entered."
+			redirect_to new_bet_path(matchID)
+		end
+		if value.to_i > @user.Balance
+			puts "Not enough balance"
+			flash[:status] = "You do not have enough money."
+			redirect_to new_bet_path(matchID)
+		else
+			b=@user.Balance
+			newBalance = b-value.to_i
+			@user.update_attributes(:Balance=>newBalance)
+			puts newBalance
+			b=Bet.create()
+			id=session[:currUserID]
+			b.update_attributes(:matchID_id=>matchID, :userID_id=>id, :value=>value)
+			b.save
+			@bets = Bet.find_by_Name(@user.Name)
+			flash[:status] = "Bet was successfully placed."
+			redirect_to bets_path
+		end
 	end
 end

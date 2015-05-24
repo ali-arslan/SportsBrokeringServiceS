@@ -13,7 +13,6 @@
 
 <br><br>
 
-
 = link_to 'View All Teams', teams_index_path
 
 <br><br>
@@ -37,10 +36,11 @@
 	%tbody
 	- @matches.each do |t|
 		%tr
-			%td= t.team_1.name
-			%td= t.team_2.name
-			%td= t.match_type
-			%td= link_to 'Place Bet', new_bet_path(t.id)
+			- if t.team_1 != nil AND t.team_2 != nil
+				%td= t.team_1.name
+				%td= t.team_2.name
+				%td= t.match_type
+				%td= link_to 'Place Bet', new_bet_path(t.id)
 				
 				
 				

@@ -15,6 +15,11 @@ Rails.application.routes.draw do
   resources :session
  
   resources :matchs
+  get 'matchs/index'
+  post 'matchs/index' 
+  resources :bets
+
+  post 'bets/new1'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

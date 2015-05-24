@@ -15,12 +15,13 @@ class SessionController < ApplicationController
 		session[:currUser] = @user
       puts @user.id
       flash[:status] = "You have successfully logged in!"
-      redirect_to users_url
+      redirect_to matchs_path
     end
   end
 
   def logout
 		@user = nil
 		session[:currUserID] = nil
+		redirect_to matchs_path
   end
 end

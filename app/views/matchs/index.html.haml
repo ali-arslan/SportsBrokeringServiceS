@@ -1,15 +1,31 @@
 
 %h1 All Matches
 
+- if flash[:status]
+	#notice.message= flash[:status]
+
 - if session[:currUserID]
 	Welcome, #{@user.Name}
+	= link_to 'View All bets', bets_path
 - else
 	= link_to 'Sign In', session_index_path
+	= link_to 'Sign Up', new_user_path
 
 <br><br>
 
 = link_to 'View All Teams', teams_index_path
 
+<br><br>
+
+%input{:type=>"hidden", :value=>params[:match_types], :name=>:match_types}
+= form_tag matchs_index_path :method => :post do
+	Filter Matches:
+	- @all_types.each do |type|
+		= type
+		= check_box_tag "type[#{type}]",1,  @selected_types.include?(type) 
+	= submit_tag 'Filter'
+
+%input{:type=>"hidden", :value=>"null", :name=>"selected_match"}
 %table#matches
 	%thead
 		%tr
@@ -23,6 +39,10 @@
 			%td= t.team_1.name
 			%td= t.team_2.name
 			%td= t.match_type
+			%td= link_to 'Place Bet', new_bet_path(t.id)
+				
+				
+				
 
 - if session[:currUserID]
 	= link_to 'Logout', session_logout_path

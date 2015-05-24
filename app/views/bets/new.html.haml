@@ -1,0 +1,25 @@
+%h1 New Bet
+
+%h3 Selected match: 
+
+%table#Details
+	%thead
+		%tr
+			%th Match ID
+			%th Team 1
+			%th Team 2
+			%th Match Type
+	%tbody
+		%tr
+			%td= @match.id
+			%td= @team1.name
+			%td= @team2.name
+			%td= @match.match_type
+
+
+= form_tag bets_new1_path, :method=>:post do
+	= text_field_tag(:amount)
+	%br
+	= radio_button_tag 'team', '1'
+	= radio_button_tag 'team', '2'  
+	= submit_tag("Place bet")

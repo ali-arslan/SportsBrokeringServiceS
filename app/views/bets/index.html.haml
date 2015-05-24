@@ -1,0 +1,22 @@
+%h1 All Bets
+
+%h2 Showing all bets by #{@user.Name}
+
+= link_to 'View All Teams', teams_index_path
+= link_to 'View All Matches', matchs_path
+
+%table#bets
+	%thead
+		%tr
+		%th Team
+		%th Match
+		%th Value
+	%tbody
+	- @bets.each do |t|
+		%tr
+			%td= t.team.name
+			%td= t.match.id
+			%td= t.value
+
+- if session[:currUserID]
+	= link_to 'Logout', session_logout_path

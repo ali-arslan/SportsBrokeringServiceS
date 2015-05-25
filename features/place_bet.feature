@@ -21,12 +21,11 @@ Feature: Place a Bet
 	When I follow "Sign In"
 	When I fill in "username_field" with "mesi"
 	And I fill in "password_field" with "aa"
-	And I follow "Log in"
+	And I follow by clicking button "Log in"
 	Then I am on the all matches page
 	And I follow "Place Bet"
-	Then I should be on bets_new_path
 	When I fill in "amount" with "100"
 	When I fill in "matchID" with "1"
 	And I select "Team1"
-	And I follow "Place Bet"
+	And I follow by clicking button promptly "Place Bet"		
 	Then I should see the message "Bet was successfully placed."

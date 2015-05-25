@@ -80,6 +80,10 @@ Then(/^I am on the user page$/) do
   # assert page.current_path == user_path
 end
 
+When(/^I follow by clicking button promptly "(.*?)"$/) do |arg1|
+end
+
+
 When(/^I set the username to billu$/) do
   # pending # express the regexp above with the code you wish you had
   fill_in "username_field", :with => "billu"
@@ -140,6 +144,10 @@ When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
 
+When /^(?:|I )follow by clicking button promptly"([^"]*)"$/ do |link|
+  # theres a she wolf in the closet
+end
+
 When(/^I set the DOB to '(\d+),(\d+),(\d+)'$/) do |arg1, arg2, arg3|
   # pending # express the regexp above with the code you wish you had
   # fill_in 'user_DOB_1i', :with => arg1
@@ -197,6 +205,15 @@ end
 When /^(?:|I )follow "([^"]*)"$/ do |link|
   click_link(link)
 end
+
+When /^(?:|I )follow by clicking button "([^"]*)"$/ do |link|
+  click_button(link)
+end
+
+When(/^I select "(.*?)"$/) do |arg1|
+
+end
+
 
 
 

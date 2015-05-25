@@ -8,7 +8,7 @@ Given /the following teams exist/ do |arg1|
 	 Team.create! ({:name=> 'India', :team_type=>'international'})
 end
 
-Given /the following user exists/ do |arg1|
+Given /the following user exists/ do
 		User.create! ({:Username=> 'mesi', :password=>'aa'})
 end
 

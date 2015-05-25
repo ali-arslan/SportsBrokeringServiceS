@@ -1,0 +1,35 @@
+%h1 New Bet
+
+- if flash[:status]
+	#notice.message= flash[:status]
+
+%h3 Selected match: 
+
+%table#Details
+	%thead
+		%tr
+			%th Match ID
+			%th Team 1
+			%th Team 2
+			%th Match Type
+	%tbody
+		%tr
+			%td= @match.id
+			%td= @team1.name
+			%td= @team2.name
+			%td= @match.match_type
+
+
+= form_tag bets_new1_path, :method=>:post do
+	%h3 Enter amount to bet:
+	= text_field_tag(:amount)
+	<br>
+	%h3 Enter match ID:    
+	= text_field_tag(:matchID)
+	%br
+	Team 1
+	= radio_button_tag 'team', '1'
+	Team 2
+	= radio_button_tag 'team', '2'  
+	<br>
+	= submit_tag("Place bet")

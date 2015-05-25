@@ -42,6 +42,7 @@ h1 {
 h1.title {
   margin: 0 0 1em;
   padding: 10px;
+position: absolute
   background-color: orange;
   color: white;
   border-bottom: 4px solid gold;
